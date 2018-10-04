@@ -20,7 +20,6 @@ $(document).ready(function(){
 			//adiciona no banco de dados
 			database.ref('users/' + USER_ID).set({
   			email: email,
-  			name: name,
   			password: password
  			});
 
