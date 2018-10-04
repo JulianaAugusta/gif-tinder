@@ -5,6 +5,7 @@ $(document).ready(function() {
   index = 0;
   showGifs();
   $('#save-gif').on('click', saveGif);
+  $('#logout').on('click', logout);
   $('#library').on('click', () => {
     window.location = "library.html?id=" + USER_ID; 
   });
@@ -19,9 +20,7 @@ var hammertime = Hammer(element).on('swipe', function (event) {
   let posicao = pX - img.offsetHeight / 2;
   if (posicao > 10) {
     saveGif();
-  } else {
-    alert("=(");
-  }
+  } 
 
   showGifs();
 })
@@ -59,6 +58,14 @@ function saveGif() {
         gif: saveGifUrl,
       });
     })
-  
+}
+
+function logout() {
+  firebase.auth().signOut()
+  .then(function() {
+    window.location = 'index.html';
+  })
+  .catch(function(error) {
+  });
 }
 

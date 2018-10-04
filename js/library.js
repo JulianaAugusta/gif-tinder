@@ -3,6 +3,7 @@ var USER_ID = window.location.search.match(/\?id=(.*)/)[1];
 
 $(document).ready(function() {
   loadSavedItems();
+  $('#logout').on('click', logout);
   $('#back').on('click', () => {
     window.location = "tinder.html?id=" + USER_ID; 
   });
@@ -28,4 +29,13 @@ function showGifTemplate(libGifUrl) {
     </div>
   `
   return $('main').prepend(template);
+}
+
+function logout() {
+  firebase.auth().signOut()
+  .then(function() {
+    window.location = 'index.html';
+  })
+  .catch(function(error) {
+  });
 }
