@@ -4,22 +4,23 @@ $(document).ready(function(){
 
 	$("#sign-up-btn").click(function(event) {
 		event.preventDefault();
-		var name = $("#name-input").val()
+		
 		var email = $("#email-input").val();
 		var password = $("#password-input").val();
-		var USER_ID = '';
+		var user_id = '';
 
 		console.log(email, password);
 
 		firebase.auth().createUserWithEmailAndPassword(email, password)
 		.then(function(response) {
 			console.log(response);
-			USER_ID = response.user.uid;
-			window.location = "tinder.html?id=" + USER_ID;
+			user_id = response.user.uid;
+			// window.location = "tinder.html?id=" + user_id;
 
 			//adiciona no banco de dados
-			database.ref('users/' + USER_ID).set({
+			database.ref('users/' + user_id).set({
   			email: email,
+
   			password: password
  			});
 
@@ -84,6 +85,7 @@ $(document).ready(function(){
 
 
 })
+
 
 
 
