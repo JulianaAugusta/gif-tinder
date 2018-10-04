@@ -1,9 +1,9 @@
 var config = {
-    apiKey: "<API_KEY>",
-    authDomain: "<PROJECT_ID>.firebaseapp.com",
-    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
-    projectId: "<PROJECT_ID>",
-    storageBucket: "<BUCKET>.appspot.com",
-    messagingSenderId: "<SENDER_ID>",
+    apiKey: "AIzaSyDqhFa0HcQEw6HOdFTeFpp-nKeq6BIfCTM",
+    authDomain: "gif-tinder.firebaseapp.com",
+    databaseURL: "https://gif-tinder.firebaseio.com",
+    projectId: "gif-tinder",
+    storageBucket: "gif-tinder.appspot.com",
+    messagingSenderId: "541134577610"
   };
   firebase.initializeApp(config);

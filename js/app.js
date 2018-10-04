@@ -1,4 +1,3 @@
-
 var database = firebase.database();
 
 $(document).ready(function(){
@@ -16,7 +15,7 @@ $(document).ready(function(){
           email: email,
           usuario: userName  
         });
-        window.location = "perfil.html?id=" + userId;
+        window.location = "tinder.html?id=" + userId;
       })
 
       .catch(function(error) {
@@ -33,7 +32,7 @@ $(document).ready(function(){
 
       firebase.auth().signInWithEmailAndPassword(email, password)
         .then(function(response){ 
-          window.location = "perfil.html?id=" + response.uid;
+          window.location = "tinder.html?id=" + response.uid;
         })
         
         .catch(function(error) {
@@ -42,3 +41,4 @@ $(document).ready(function(){
         });
 		});
 });
+
