@@ -5,13 +5,25 @@ $(document).ready(function() {
   index = 0;
   showGifs();
   $('#save-gif').on('click', saveGif);
+  $('#library').on('click', () => {
+    window.location = "library.html?id=" + USER_ID; 
+  });
 });
 
 let index = 0;
 
 var element = document.getElementById('main');
 var hammertime = Hammer(element).on('swipe', function (event) {
- showGifs();
+  var pX = window.event.clientX;
+  var img = document.getElementById('my-gif');
+  let posicao = pX - img.offsetHeight / 2;
+  if (posicao > 10) {
+    saveGif();
+  } else {
+    alert("=(");
+  }
+
+  showGifs();
 })
 
 function getGifsOnDb() {
@@ -37,9 +49,7 @@ function template(imgUrl) {
   `;
 }
 
-function saveGif(e) {
-  e.preventDefault();
-
+function saveGif() {
   const saveGifUrl = $('#my-gif').attr('src');
   
   database.ref(`users/${USER_ID}`).once('value')
