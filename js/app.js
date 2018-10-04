@@ -17,11 +17,10 @@ function getGifsOnDb() {
   .catch(error => console.log(error));
 }
 
-// const 
-
 async function showGifs() {
   const data = await getGifsOnDb();
   const imgUrl = data.fixed_height_downsampled_url;
+  console.log(data);
 
   return document.getElementById('main').innerHTML = template(imgUrl);
 }
