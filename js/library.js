@@ -3,6 +3,9 @@ var USER_ID = window.location.search.match(/\?id=(.*)/)[1];
 
 $(document).ready(function() {
   loadSavedItems();
+  $('#back').on('click', () => {
+    window.location = "tinder.html?id=" + USER_ID; 
+  });
 });
 
 function loadSavedItems() {
@@ -20,8 +23,8 @@ function loadSavedItems() {
 
 function showGifTemplate(libGifUrl) {
   let template = `
-    <div>
-      <img src="${libGifUrl}">
+    <div class='d-flex justify-content-center align-items-center'>
+      <img class="mt-3 img-fluid justify-content-center" src="${libGifUrl}">
     </div>
   `
   return $('main').prepend(template);

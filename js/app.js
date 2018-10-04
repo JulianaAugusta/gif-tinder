@@ -45,7 +45,7 @@ async function showGifs() {
 
 function template(imgUrl) {    
   return `
-    <img src="${imgUrl}" id="my-gif">
+    <img class="img-fluid mt-5" src="${imgUrl}" id="my-gif">
   `;
 }
 
