@@ -15,14 +15,13 @@ $(document).ready(function(){
 		.then(function(response) {
 			console.log(response);
 			user_id = response.user.uid;
-			// window.location = "tinder.html?id=" + user_id;
-
-			//adiciona no banco de dados
+            
 			database.ref('users/' + user_id).set({
   			email: email,
-
   			password: password
- 			});
+             });
+             
+             window.location = "tinder.html?id=" + user_id; 
 
 		})
 		.catch(function(error) {
@@ -30,7 +29,9 @@ $(document).ready(function(){
   		var errorCode = error.code;
   		var errorMessage = error.message;
   		console.log(errorCode, errorMessage);
-		});	
+        });
+        
+        
 
 	})
 
