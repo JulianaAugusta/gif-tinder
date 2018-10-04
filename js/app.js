@@ -27,7 +27,7 @@ var hammertime = Hammer(element).on('swipe', function (event) {
 })
 
 function getGifsOnDb() {
-  const url = 'https://api.giphy.com/v1/gifs/trending?&api_key=JyoICdd17KrRiQnSkR7W8FjphIOQtEDY&limit=50';
+  const url = 'https://api.giphy.com/v1/gifs/trending?&api_key=nkR8qO6nAiBUkRFMIwSuqBfp5sXRjl64&limit=50';
 
   return fetch(url)
   .then(response => response.json())
