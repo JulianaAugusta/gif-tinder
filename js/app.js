@@ -1,3 +1,6 @@
+var database = firebase.database();
+var USER_ID = window.location.search.match(/\?id=(.*)/)[1];
+
 $(document).ready(function() {
   index = 0;
   showGifs();
@@ -34,6 +37,18 @@ function template(imgUrl) {
   `;
 }
 
-function saveGif() {
-  showGifs();
+function saveGif(e) {
+  e.preventDefault();
+
+  const saveGifUrl = $('#my-gif').attr('src');
+  
+  database.ref(`users/${USER_ID}`).once('value')
+  .then(() => {
+
+      database.ref(`users/${USER_ID}/library`).push({
+        gif: saveGifUrl,
+      });
+    })
+  
 }
+
